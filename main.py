@@ -28,9 +28,9 @@ def main(page:ft.Page):
         weather=Get_Weather_Details(response['lat'],response['lon'])
         print(weather)
         if weather:
-            temp_in_celcius=f"{weather['main']['temp']-273.15:.2f}°"
-            weather_list.current.controls.insert(0,
-                
+            temp_in_celcius=f"{weather['main']['temp']-273.15:.2f}°C"
+            weather_list.current.controls.insert(
+                0,
                 Create_Weather_Card(page.width,temp_in_celcius,weather['name'],weather['weather'][0]['main'],f"Humidity {weather['main']['humidity']}%")
             )
             page.views[1].floating_action_button.visible=False
